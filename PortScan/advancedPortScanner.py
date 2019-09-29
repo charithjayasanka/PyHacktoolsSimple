@@ -4,6 +4,16 @@ from socket import *
 import optparse
 from threading import *
 
+def connScan(tgtHost, tgtPort):
+	try:
+		sock = socket(AF_INET,SOCK_STREAM)
+		sock.connect((tgtHost,tgtPort))
+		print '[+]%d/tcp Open' % tgtPort
+	except:
+		print '[-] %d/tcp Closed' % tgtPort
+	finally:
+		sock.close()
+
 def portScan(tgtHost,tgtPorts):
 	try:
 		tgtIP = gethostbyname(tgtHost)
@@ -14,7 +24,7 @@ def portScan(tgtHost,tgtPorts):
 		print '[+] Scan results For: ' + tgtName[0]
 	except:
 		print '[+] Scan results for: ' + tgtIP
-	setdefaultimeout(1)
+	setdefaulttimeout(4)
 	for tgtPort in tgtPorts:
 		t  = Thread(target=connScan,args=(tgtHost,int(tgtPort)))
 		t.start()
@@ -30,5 +40,5 @@ def main():
 		print parser.usage
 		exit(0)
 	portScan(tgtHost,tgtPorts)
-if __name__ ='__main__':
+if __name__ =='__main__':
 	main()
