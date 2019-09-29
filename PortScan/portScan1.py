@@ -4,8 +4,8 @@
 import socket
 # AF_INET => IPV4 Addresses / Sock_STREAM => TCP Packets
 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-host = "<your_ip_or_host>"
-port = <port to be scanned>
+host = raw_input("[*] Enter the host to be scanned : ")
+port = int(raw_input("[*] Enter the Port to be Scanned: "))
 
 def portScanner(port):
 #checks if connection method throws any errors
