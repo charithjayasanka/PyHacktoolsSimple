@@ -4,8 +4,8 @@
 import socket
 # AF_INET => IPV4 Addresses / Sock_STREAM => TCP Packets
 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-host = "192.168.8.147"
-port = 443
+host = "your_ip_or_host"
+port = #port to be scanned
 
 def portScanner(port):
 #checks if connection method throws any errors
