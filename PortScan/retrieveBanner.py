@@ -13,8 +13,8 @@ def retBanner(ip,port):
 		return "dfdfdf"
 
 def main():
-	port = 22
-	ip = "192.168.136.129"
+	port = 22 # port to be used
+	ip = "192.168.136.129" #use the ip of your need to scan host
 	banner = retBanner(ip,port)
 	if banner:
 		print "[+]" + ip + ": " + banner
